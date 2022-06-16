@@ -8,6 +8,7 @@ BASE_FOLDER="$(mktemp -d -t docker-redirect.XXXXXX)"
 mkdir $BASE_FOLDER/socket
 touch $BASE_FOLDER/Xauthority
 
+
 # Get the DISPLAY slot
 DISPLAY_NUMBER=$(echo $DISPLAY | cut -d. -f1 | cut -d: -f2)
 
