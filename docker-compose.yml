@@ -2,7 +2,7 @@ version: "3"
 
 services:
   ${CONTAINER_NAME}:
-    image: ${CONTAINER_NAME}
+    image: ${CONTAINER_TAG}
     ipc: host
     environment:
       - DISPLAY=0
