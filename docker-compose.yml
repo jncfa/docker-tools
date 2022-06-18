@@ -8,9 +8,9 @@ services:
       - DISPLAY=0
       - SSH_AUTH_SOCK=/ssh-agent
     volumes: 
-      - ${SSH_AUTH_SOCK}:/ssh-agent
+      - ${SSH_AUTH_SOCK_DOCKER}:/ssh-agent
       - ${HOME}/docker_workspace:/docker_workspace
-    hostname: your-name
+    hostname: ${CONTAINER_HOSTNAME}
     deploy:
       resources:
         reservations:
