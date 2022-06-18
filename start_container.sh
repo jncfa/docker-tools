@@ -105,13 +105,7 @@ fi
 if [ "$(docker ps -a | grep ${CONTAINER_NAME})" ]; then
   echo "Container already running..."
 else
-  docker run \
-  --name ${CONTAINER_NAME} \
-  -e DISPLAY=:0 \
-  -e SSH_AUTH_SOCK=/ssh-agent \
-  -v ${SSH_AUTH_SOCK}:/ssh-agent \
-  -v ${HOME}/docker_workspace:/docker_workspace \
-  --hostname ${CONTAINER_HOSTNAME} \
-  --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 \
-   ${DOCKER_ARGS[@]} ${CONTAINER_TAG} 
+  #For docker compose access the variables you need to export them
+  # export...  
+  docker compose up
 fi

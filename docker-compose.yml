@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  ${CONTAINER_NAME}:
+    image: ${CONTAINER_TAG}
+    ipc: host
+    environment:
+      - DISPLAY=0
+      - SSH_AUTH_SOCK=/ssh-agent
+    volumes: 
+      - ${SSH_AUTH_SOCK_DOCKER}:/ssh-agent
+      - ${HOME}/docker_workspace:/docker_workspace
+    hostname: ${CONTAINER_HOSTNAME}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    ulimits:
+      - memlock: -1
+      - stack: 67108864
